@@ -13,7 +13,7 @@ RUN apk update && apk add bash
 
 ### 2. Create Docker Compose to run 3 docker container of Nginx
 
-Refer to [docker-compose.yml](./docker-compose.yml).
+Refer to [docker-compose.yaml](./docker-compose.yaml).
 
 ## Mount Nginx Config of proxy for easy updating
 
