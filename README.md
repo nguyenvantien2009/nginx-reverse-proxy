@@ -8,6 +8,15 @@ In the path [`./reverse-proxy/nginx.conf`](./reverse-proxy/nginx.conf) we define
 passed to original server. But in the development process, we need change on a regular basis. Mount it
 to local directory will a good solution for easy for using.
 
+```diff
+     ports:
+       - 8080:8080
+       - 8081:8081
++    volumes:
++      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
+     # restart: always
+```
+
 ## Nginx Proxy Caching
 
 For any reason, we need cache between original server to reverse proxy. Nginx support config cache with
