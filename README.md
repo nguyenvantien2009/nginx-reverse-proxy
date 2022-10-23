@@ -10,7 +10,25 @@ to local directory will a good solution for easy for using.
 
 ## Nginx Proxy Caching
 
+For any reason, we need cache between original server to reverse proxy. Nginx support config cache with
+expire time, limit size of cache...
 
+```code
+// ...
+proxy_cache_path   /data/nginx/cache keys_zone=mycache:10m max_size=200m;
+// ...
+server {
+    listen 8080;
+    proxy_cache mycache;
+
+    location / {
+        proxy_pass http://docker-nginx;
+        proxy_cache_valid 200 1d;
+        proxy_redirect off;
+    }
+}
+// ...
+```
 
 ## References
 
